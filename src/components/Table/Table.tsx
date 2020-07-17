@@ -2,14 +2,7 @@ import React from 'react'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import mockInfo from './info.js'
-
-export interface Row {
-  contact: string;
-  value: number;
-  location: string;
-  deals: number;
-  tags: Array<string>;
-}
+import { Row } from 'types'
 
 function renderRows(rows: Array<Row>) {
   return rows.map(row => <TableRow row={row} />)

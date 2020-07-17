@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row } from './types'
+import { Row } from 'types'
 
 export default function TableRow(props: { row: Row }) {
   return (
