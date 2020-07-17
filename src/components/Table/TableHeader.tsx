@@ -17,6 +17,9 @@ export function renderColumns() {
 export default function TableHeader() {
   return (
     <tr>
+      <th>
+        <input type='checkbox' />
+      </th>
       {renderColumns()}
     </tr>
   )

@@ -4,6 +4,9 @@ import { Row } from 'types'
 export default function TableRow(props: { row: Row }) {
   return (
     <tr>
+      <td>
+        <input type='checkbox' />
+      </td>
       <td>{props.row.contact}</td>
       <td>{props.row.value}</td>
       <td>{props.row.location}</td>
