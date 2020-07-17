@@ -10,9 +10,9 @@ function renderRows(rows: Array<Row>) {
 
 export default function Table() {
   return (
-    <div>
+    <table>
       <TableHeader />
       {renderRows(mockInfo)}
-    </div>
+    </table>
   )
 }

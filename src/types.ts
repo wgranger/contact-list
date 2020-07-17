@@ -1,4 +1,4 @@
-export interface Row {
+export type Row = {
   contact: string;
   value: number;
   location: string;
