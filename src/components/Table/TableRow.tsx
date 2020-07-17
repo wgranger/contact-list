@@ -6,8 +6,8 @@ export default function TableRow(props: { row: Row }) {
     <tr>
       <td>
         <input type='checkbox' />
+        {props.row.contact}
       </td>
-      <td>{props.row.contact}</td>
       <td>{props.row.value}</td>
       <td>{props.row.location}</td>
       <td>{props.row.deals}</td>
