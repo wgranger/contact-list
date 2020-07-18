@@ -10,7 +10,7 @@ function renderRows(rows: Array<Row>) {
 
 export default function Table() {
   return (
-    <table>
+    <table className='contact-table'>
       <TableHeader />
       {renderRows(mockInfo)}
     </table>
