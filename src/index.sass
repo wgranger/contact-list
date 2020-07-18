@@ -1,0 +1,74 @@
+$slate-1: #1F2129
+$slate-4: #5F667E
+$slate-6: #CFD3E0
+$slate-7: #E4E7EF
+
+$ocean-2: #396FE3
+$ocean-6: #FAFBFF
+
+$lavender-5: #EAE0FE
+
+$scale-0: 12px
+$scale-1: 13px
+$scale-2: 14px
+$scale-3: 16px
+$scale-4: 18px
+$scale-5: 20px
+$scale-6: 24px
+$scale-7: 28px
+
+body
+  font-family: 'Lucida Grande'
+
+.avatar
+  background-color: $lavender-5
+  border-radius: 100%
+  font-size: 11px
+  height: 20px
+  text-align: center
+  width: 20px
+
+  span
+    vertical-align: middle
+
+.contacts-table
+  border-collapse: collapse
+  min-width: 50rem
+  width: 100%
+
+  &__contact
+    display: flex
+    align-items: center
+
+    div
+      margin-right: 10px
+
+    > span
+      color: $ocean-2
+
+  tr:nth-child(even)
+    background: $ocean-6
+
+  tr
+    border: 1px solid $slate-7
+
+  th
+    color: $slate-4
+    font-size: $scale-0
+    font-weight: normal
+    height: 28px
+    padding: 0 12px
+    text-align: left
+    text-transform: capitalize
+
+  td
+    color: $slate-1
+    font-size: $scale-1
+    padding: 12px
+
+  tbody tr
+    height: 46px
+
+  input
+    margin: 0 12px 0 0
+    vertical-align: bottom
