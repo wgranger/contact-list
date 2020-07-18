@@ -1,12 +1,16 @@
 import React from 'react'
+import Avatar from '../Avatar'
 import { Row } from 'types'
 
 export default function TableRow(props: { row: Row }) {
   return (
     <tr>
       <td>
-        <input type='checkbox' />
-        {props.row.contact}
+        <div className='contacts-table__contact'>
+          <input type='checkbox' />
+          <Avatar name={props.row.contact} />
+          <span>{props.row.contact}</span>
+        </div>
       </td>
       <td>{props.row.value}</td>
       <td>{props.row.location}</td>

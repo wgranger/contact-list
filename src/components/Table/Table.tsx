@@ -5,14 +5,16 @@ import mockInfo from './info.js'
 import { Row } from 'types'
 
 function renderRows(rows: Array<Row>) {
-  return rows.map(row => <TableRow row={row} />)
+  return rows.map((row, i) => <TableRow key={`TABLE_ROW_${i}`} row={row} />)
 }
 
 export default function Table() {
   return (
-    <table className='contact-table'>
+    <table className='contacts-table'>
       <TableHeader />
-      {renderRows(mockInfo)}
+      <tbody>
+        {renderRows(mockInfo)}
+      </tbody>
     </table>
   )
 }
