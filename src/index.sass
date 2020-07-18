@@ -33,10 +33,12 @@ body
 
 .contacts-table
   border-collapse: collapse
+  min-width: 50rem
   width: 100%
 
   &__contact
     display: flex
+    align-items: center
 
     div
       margin-right: 10px
@@ -49,12 +51,12 @@ body
 
   tr
     border: 1px solid $slate-7
-    height: 28px
 
   th
     color: $slate-4
     font-size: $scale-0
     font-weight: normal
+    height: 28px
     padding: 0 12px
     text-align: left
     text-transform: capitalize
@@ -63,6 +65,9 @@ body
     color: $slate-1
     font-size: $scale-1
     padding: 12px
+
+  tbody tr
+    height: 46px
 
   input
     margin: 0 12px 0 0
