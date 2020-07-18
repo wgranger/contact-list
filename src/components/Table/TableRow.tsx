@@ -15,7 +15,7 @@ export default function TableRow(props: { row: Row }) {
       <td>{props.row.value}</td>
       <td>{props.row.location}</td>
       <td>{props.row.deals}</td>
-      <td>{props.row.tags}</td>
+      <td>{props.row.tags && props.row.tags.join(', ').toString()}</td>
     </tr>
   )
 }
