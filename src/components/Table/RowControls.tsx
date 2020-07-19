@@ -3,14 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function RowControls() {
-  const [selectedAction, selectAction] = React.useState<string>('')
+  const [isOpen, setOpen] = React.useState<boolean>(false)
+  const toggleOpen = () => setOpen(!isOpen)
 
   return (
     <div className='row-controls'>
-      <div className='row-controls__label'>
-        <span>Email</span>
+      <button className='row-controls__label' onClick={toggleOpen}>
+        <div>
+          <span>Email</span>
+        </div>
         <FontAwesomeIcon icon={faCaretDown} />
-      </div>
+      </button>
+      {isOpen && (
+        <div className='row-controls__dropdown'>
+          <div>
+            <button>Edit</button>
+            <button>Email</button>
+            <button>Call</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
