@@ -36,7 +36,7 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
       <td>{row.deals}</td>
       <td>{row.tags && row.tags.join(', ').toString()}</td>
       <td>
-        <RowControls />
+        <RowControls visible={activeRow} />
       </td>
     </tr>
   )

@@ -2,7 +2,11 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
-export default function RowControls() {
+interface RowControlsProps {
+  visible: boolean
+}
+
+export default function RowControls({ visible }: RowControlsProps) {
   const [isOpen, setOpen] = React.useState<boolean>(false)
   const [activeControl, setActiveControl] = React.useState<string>('Email')
   const buttonRef = React.useRef<HTMLButtonElement>(null)
@@ -34,7 +38,7 @@ export default function RowControls() {
   }, [])
 
   return (
-    <div className='row-controls'>
+    <div className='row-controls' style={{ visibility: visible ? 'visible' : 'collapse' }}>
       <button
         className='row-controls__label'
         onClick={toggleOpen}
