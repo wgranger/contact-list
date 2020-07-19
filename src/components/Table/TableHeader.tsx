@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import { Row } from 'types'
 
 export interface TableHeaderProps {
@@ -45,6 +47,9 @@ export default function TableHeader({ activeRows, setActiveRows, rows }: TableHe
         <th>location</th>
         <th>deals</th>
         <th>tags</th>
+        <th>
+          <FontAwesomeIcon icon={faEllipsisH} />
+        </th>
       </tr>
     </thead>
   )

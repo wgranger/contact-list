@@ -1,5 +1,6 @@
 import React from 'react'
 import Avatar from '../Avatar'
+import RowControls from './RowControls'
 import { Row } from 'types'
 
 export interface TableRowProps {
@@ -16,7 +17,7 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
       const rowIndex = activeRowsCopy.indexOf(row)
       activeRowsCopy.splice(rowIndex, 1)
     } else {
-      activeRowsCopy.push(row)  
+      activeRowsCopy.push(row)
     }
     setActiveRows(activeRowsCopy)
   }
@@ -34,6 +35,9 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
       <td>{row.location}</td>
       <td>{row.deals}</td>
       <td>{row.tags && row.tags.join(', ').toString()}</td>
+      <td>
+        <RowControls visible={activeRow} />
+      </td>
     </tr>
   )
 }
