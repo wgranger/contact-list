@@ -20,6 +20,10 @@ $scale-7: 28px
 body
   font-family: 'Lucida Grande'
 
+button
+  &:hover
+    cursor: pointer
+
 .avatar
   background-color: $lavender-5
   border-radius: 100%
@@ -82,7 +86,6 @@ body
     background-color: white
     border: 1px solid $slate-6
     border-radius: 4px
-    cursor: pointer
     display: flex
     height: 32px
     padding: 0
@@ -96,12 +99,14 @@ body
 
     span
       align-items: center
+      color: $slate-1
       display: inline-flex
       font-size: $scale-0
       font-weight: bold
       height: 100%
 
     svg
+      color: $slate-1
       height: 100%
       margin: auto
       vertical-align: middle
@@ -118,12 +123,14 @@ body
       flex-direction: column
       margin-top: 12px
       position: absolute
+      width: 67px
       z-index: 1
 
       button
         background-color: transparent
         border: none
+        color: $slate-1
         font-size: $scale-0
         font-weight: bold
-        margin: 12px
+        padding: 12px
         text-align: left
