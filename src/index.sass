@@ -64,7 +64,7 @@ body
   td
     color: $slate-1
     font-size: $scale-1
-    padding: 12px
+    padding: 0 12px
 
   tbody tr
     height: 46px
@@ -72,3 +72,23 @@ body
   input
     margin: 0 12px 0 0
     vertical-align: bottom
+
+.row-controls
+  display: flex
+  position: relative
+
+  &__label
+    background-color: white
+    border: 1px solid $slate-6
+    border-radius: 4px
+
+    span
+      border-right: 1px solid $slate-6
+      display: inline-block
+      font-size: $scale-0
+      font-weight: 700
+      padding: 8px
+
+    svg
+      padding: 8px 5px
+      vertical-align: middle
