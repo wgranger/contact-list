@@ -43,7 +43,7 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
           <span>{row.contact}</span>
         </div>
       </td>
-      <td>{row.value}</td>
+      <td>{`$${row.value.toLocaleString()}`}</td>
       <td>{row.location}</td>
       <td>{row.deals}</td>
       <td>{row.tags && row.tags.join(', ').toString()}</td>
