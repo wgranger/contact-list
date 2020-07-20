@@ -41,6 +41,7 @@ export default function TableHeader({ activeRows, setActiveRows, rows }: TableHe
         <th>
           <input
             checked={allSelected}
+            id='checkAll'
             name='checkAll'
             onChange={toggleRows}
             onKeyDown={handleKeyDown}
