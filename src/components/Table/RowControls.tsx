@@ -10,7 +10,10 @@ export default function RowControls({ visible }: RowControlsProps) {
   const [isOpen, setOpen] = React.useState<boolean>(false)
   const [activeControl, setActiveControl] = React.useState<string>('Email')
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const toggleOpen = () => setOpen(!isOpen)
+  const toggleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    setOpen(!isOpen)
+  }
   const toggleControl = (control: string) => {
     setOpen(false)
     setActiveControl(control)
