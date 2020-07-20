@@ -22,16 +22,28 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
     setActiveRows(activeRowsCopy)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') toggleRow()
+  }
+
   return (
     <tr>
       <td>
         <div className='contacts-table__contact'>
-          <input type='checkbox' checked={activeRow} onChange={toggleRow} />
-          <Avatar name={row.contact} />
+          <input
+            type='checkbox'
+            checked={activeRow}
+            name={row.contact}
+            onChange={toggleRow}
+            onKeyDown={handleKeyDown}
+          />
+          <label htmlFor={row.contact}>
+            <Avatar name={row.contact} />
+          </label>
           <span>{row.contact}</span>
         </div>
       </td>
-      <td>{row.value}</td>
+      <td>{`$${row.value.toLocaleString()}`}</td>
       <td>{row.location}</td>
       <td>{row.deals}</td>
       <td>{row.tags && row.tags.join(', ').toString()}</td>
