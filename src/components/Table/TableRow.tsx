@@ -33,6 +33,7 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
           <input
             type='checkbox'
             checked={activeRow}
+            id={row.contact}
             name={row.contact}
             onChange={toggleRow}
             onKeyDown={handleKeyDown}
