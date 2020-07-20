@@ -18,16 +18,15 @@ export default function TableHeader({ activeRows, setActiveRows, rows }: TableHe
   }
 
   const inputRef = React.useRef<HTMLInputElement>(null)
+
+
   if (inputRef && inputRef.current) {
     const input = inputRef.current
     if (allSelected) {
-      input.checked = true
       input.indeterminate = false
     } else if (activeRows.length === 0) {
-      input.checked = false
       input.indeterminate = false
     } else {
-      input.checked = false
       input.indeterminate = true
     }
   }
@@ -41,6 +40,7 @@ export default function TableHeader({ activeRows, setActiveRows, rows }: TableHe
       <tr>
         <th>
           <input
+            checked={allSelected}
             name='checkAll'
             onChange={toggleRows}
             onKeyDown={handleKeyDown}

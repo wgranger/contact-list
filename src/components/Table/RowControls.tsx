@@ -21,7 +21,7 @@ export default function RowControls({ visible }: RowControlsProps) {
     if (e.keyCode === ESC_KEY_CODE) setOpen(false)
   }
 
-  function clickedOnControl(e: Event) {
+  function clickedOffControl(e: Event) {
     const target = e.target as HTMLElement;
     const ref = buttonRef && buttonRef.current
     if (ref && !ref.contains(target)) setOpen(false)
@@ -29,11 +29,11 @@ export default function RowControls({ visible }: RowControlsProps) {
 
   React.useEffect(() => {
     window.addEventListener('keyup', pressedEscape)
-    window.addEventListener('click', clickedOnControl)
+    window.addEventListener('click', clickedOffControl)
 
     return () => {
       window.removeEventListener('keyup', pressedEscape)
-      window.removeEventListener('click', clickedOnControl)
+      window.removeEventListener('click', clickedOffControl)
     }
   }, [])
 

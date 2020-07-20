@@ -1,0 +1,52 @@
+.contacts-table
+  border-collapse: collapse
+  display: inline-table
+  margin: 3rem 0
+  min-width: 50rem
+  width: 100%
+
+  &__contact
+    display: flex
+    align-items: center
+
+    div
+      margin-right: 10px
+
+    > span
+      color: $ocean-2
+
+  tr:nth-child(even)
+    background: $ocean-6
+
+  tr
+    border: 1px solid $slate-7
+
+  th
+    color: $slate-4
+    font-size: $scale-0
+    font-weight: normal
+    height: 28px
+    padding: 0 12px
+    text-align: left
+    text-transform: capitalize
+
+    svg
+      font-size: $scale-2
+
+  td
+    color: $slate-1
+    font-size: $scale-1
+    padding: 0 12px
+
+  td:nth-child(4), th:nth-child(4)
+    text-align: center
+
+  td:nth-child(6), th:nth-child(6)
+    text-align: right
+
+  tbody tr
+    height: 46px
+
+  input
+    margin: 0 12px 0 0
+    vertical-align: bottom
