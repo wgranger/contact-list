@@ -12,7 +12,7 @@ export default function ErrorBanner({ message, toggleBanner }: ErrorBannerProps)
     <div className='error-banner'>
       <div>
         <FontAwesomeIcon icon={faExclamationCircle} />
-        <span></span>
+        <span>{message}</span>
       </div>
       <div>
         <button onClick={() => toggleBanner(false)}>
