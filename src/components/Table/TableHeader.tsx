@@ -32,16 +32,22 @@ export default function TableHeader({ activeRows, setActiveRows, rows }: TableHe
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') toggleRows()
+  }
+
   return (
     <thead>
       <tr>
         <th>
           <input
+            name='checkAll'
             onChange={toggleRows}
+            onKeyDown={handleKeyDown}
             ref={inputRef}
             type='checkbox'
           />
-          contact
+          <label htmlFor="checkAll">contact</label>
         </th>
         <th>total value</th>
         <th>location</th>
