@@ -11,7 +11,7 @@ export interface TableRowProps {
 
 export default function TableRow({ activeRows, setActiveRows, row }: TableRowProps) {
   const activeRow = activeRows.includes(row)
-  const toggleRow = () => {
+  const toggleRow = (e?: React.MouseEvent<HTMLTableRowElement, MouseEvent> | React.ChangeEvent<HTMLInputElement>) => {
     const activeRowsCopy = activeRows.slice()
     if (activeRow) {
       const rowIndex = activeRowsCopy.indexOf(row)
@@ -27,7 +27,7 @@ export default function TableRow({ activeRows, setActiveRows, row }: TableRowPro
   }
 
   return (
-    <tr>
+    <tr onClick={toggleRow}>
       <td>
         <div className='contacts-table__contact'>
           <input
