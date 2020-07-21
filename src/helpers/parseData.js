@@ -13,12 +13,17 @@ function convertCurrency(currency, value) {
   return value
 }
 
+function findContactDeals(contactId, deals) {
+  return deals.filter(deal => deal.contact === contactId)
+}
+
 function findDealValues(contactId, deals) {
-  const contactDeals = deals.filter(deal => deal.contact === contactId)
+  const contactDeals = findContactDeals(contactId, deals)
   const values = contactDeals.map(deal => convertCurrency(deal.currency, deal.value))
 
   if (!values.length) return 0
-  return values.reduce((a,b) => a + b).toFixed(2)
+  const sum = values.reduce((a,b) => a + b).toFixed(2)
+  return parseInt(sum)
 }
 
 function findLocation(contact) {
@@ -54,7 +59,7 @@ export default function parseData(data) {
         contact: `${contact.firstName} ${contact.lastName}`,
         value: findDealValues(contact.id, deals),
         location: findLocation(contact),
-        deals: deals.length,
+        deals: findContactDeals(contact.id, deals).length,
         tags: findTags(contact.id, contactTags, tags)
       }
     })

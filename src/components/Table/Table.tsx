@@ -1,7 +1,6 @@
 import React from 'react'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
-import mockInfo from './info.js'
 import { Row } from 'types'
 
 interface TableProps {
@@ -29,10 +28,10 @@ export default function Table({ contacts }: TableProps) {
       <TableHeader
         activeRows={activeRows}
         setActiveRows={setActiveRows}
-        rows={mockInfo}
+        rows={contacts}
       />
       <tbody>
-        {renderRows(activeRows, setActiveRows, mockInfo)}
+        {renderRows(activeRows, setActiveRows, contacts)}
       </tbody>
     </table>
   )
