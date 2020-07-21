@@ -7,8 +7,7 @@ export default function fetchResources() {
   const version = '/api/3'
   const resource = '/contacts'
   const includes = '?include=deals,contactTags.tag,contactLists.list'
-  const proxy = 'http://127.0.0.1:8080/'
-  const path = proxy + host + version + resource + includes
+  const path = corsAnywhere + host + version + resource + includes
 
   const options = {
     url: path,
@@ -18,10 +17,11 @@ export default function fetchResources() {
       'Content-Type': 'application/json;charset=UTF-8'
     }
   }
-
   return axios(options).then(response => {
+    console.log(response);
     return response
   }).catch(error => {
+    console.log(error);
     return error
   })
 }
