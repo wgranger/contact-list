@@ -7,7 +7,9 @@ interface ErrorBannerProps {
   toggleBanner: (value: boolean) => void;
 }
 
-export default function ErrorBanner({ message, toggleBanner }: ErrorBannerProps) {
+const DEFAULT_MESSAGE = 'Unable to process request, please refresh the page'
+
+export default function ErrorBanner({ message = DEFAULT_MESSAGE, toggleBanner }: ErrorBannerProps) {
   return (
     <div className='error-banner'>
       <div>
