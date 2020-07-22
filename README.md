@@ -22,7 +22,7 @@ I always like to test my components but do realize it's difficult to get 100% co
 I like using Lighthouse (Chrome) to generate a coverage report, although there are other tools. That can help ensure the site is covered for screen readers or tab indexing. Lighthouse failed here on one test (background color contrast), but that could easily be cleared up with a broader style guide or a chat with the designer.
 
 #### Keeping it responsive
-Not much to do here. The app works with touch events and looks alright with a screen resize. Tables are a sometimes difficult to scale for mobile.
+Not much to do here. The app works with touch events and looks alright with a screen resize. Tables are sometimes difficult to scale for mobile.
 
 #### Using an error message
 It seems in good form to display an error message in case or lost connectivity or... an error. The error message here is a bit boilerplate and shows a default message in case a valid response with contact data isn't received. Normally, the error could also display the message returned from the server.
