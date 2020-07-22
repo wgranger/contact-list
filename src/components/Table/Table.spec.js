@@ -3,6 +3,7 @@ import RowControls from './RowControls'
 import { mount } from 'enzyme'
 import Table from './Table'
 import TableHeader from './TableHeader'
+import mockData from './info'
 
 describe('Component > Table', function () {
   let wrapper
@@ -12,7 +13,7 @@ describe('Component > Table', function () {
     jest
       .spyOn(React, 'useState')
       .mockImplementation((value) => [value, setStateSpy])
-    wrapper = mount(<Table />)
+    wrapper = mount(<Table contacts={mockData} />)
   })
 
   it('should render without crashing', function () {
