@@ -16,7 +16,7 @@ ___
 I've never used Typescript, so I was happy to have the opportunity to do so here. Javascript can sometimes feel like the wild west, so strong-typing it is a nice feeling. That said, I used Typescript for the React components, but the helper functions are written in plain Javascript.
 
 #### Testing
-I always like to test my components but do realize it's difficult to get 100% coverage on the frontend. That said, I've covered many of the logical functions and branches hit on this app. Testing here will show a verbose readout as well as a coverage report. 
+I always like to test my components but do realize it's difficult to get 100% coverage on the frontend. That said, I've covered many of the logical functions and branches hit on this app. Testing here will show a verbose readout as well as a coverage report.
 
 #### Accessibility
 I like using Lighthouse (Chrome) to generate a coverage report, although there are other tools. That can help ensure the site is covered for screen readers or tab indexing. Lighthouse failed here on one test (background color contrast), but that could easily be cleared up with a broader style guide or a chat with the designer.
@@ -31,7 +31,9 @@ It seems in good form to display an error message in case or lost connectivity o
 I did end up using cors-anywhere. I spun up my own implementation of it and hosted it on Heroku. Although I was hesitant hosting something like this on Heroku, there is rate limiting for security purposes, so it shouldn't be an issue.
 
 #### Table
-Usually I would paginate a table like this, hitting the api for particular pages. However, the design makes no note of pagination and this is supposed to be a simple app, so for now there is no pagination.
+Usually I would paginate a table like this, hitting the api for particular pages. However, the design makes no note of pagination and this is supposed to be a simple app, so for now there is no pagination.  
+
+I also added a loading spinner here because I noticed the api call can take a bit long. That could be because of the proxy or the final endpoint. Either way, a loading spinner gives the idea that something is happening.
 
 #### Using the API
 This is where many of the assumptions occured, as I used the API documentation as a guide. Contact name, contact tags, and deal count were all pretty straightforward to display with sideloading/include. I also threw in row controls, the contact dropdown, for good measure. However, I made some assumptions on value and location.
