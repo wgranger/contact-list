@@ -2,7 +2,7 @@ import React from 'react';
 import Table from './components/Table'
 import ErrorBanner from './components/ErrorBanner'
 import fetchResources from 'helpers/client'
-import parseData from 'helpers/parseData'
+import { parseData } from 'helpers/parseData'
 import { Row } from 'types'
 
 function App() {

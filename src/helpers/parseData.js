@@ -1,5 +1,5 @@
 // rates accurate as of 7/21/2020
-function convertCurrency(currency, value) {
+export function convertCurrency(currency, value) {
   switch (currency) {
     case 'aud':
       value = value * 0.71
@@ -13,11 +13,11 @@ function convertCurrency(currency, value) {
   return value
 }
 
-function findContactDeals(contactId, deals) {
+export function findContactDeals(contactId, deals) {
   return deals.filter(deal => deal.contact === contactId)
 }
 
-function findDealValues(contactId, deals) {
+export function findDealValues(contactId, deals) {
   const contactDeals = findContactDeals(contactId, deals)
   const values = contactDeals.map(deal => convertCurrency(deal.currency, deal.value))
 
@@ -26,13 +26,13 @@ function findDealValues(contactId, deals) {
   return parseInt(sum)
 }
 
-function findLocation(contact) {
+export function findLocation(contact) {
   const { city, state, country } = contact
   const fullLocation = city && state && country
   return fullLocation ? `${city}, ${state}, ${country}` : ''
 }
 
-function findTags(contactId, contactTags, tags) {
+export function findTags(contactId, contactTags, tags) {
   const associatedTags = contactTags.filter(tag => tag.contact === contactId)
   const tagIds = associatedTags.map(fullTag => fullTag.tag)
   const tagsText = []
@@ -47,7 +47,7 @@ function findTags(contactId, contactTags, tags) {
   return tagsText
 }
 
-export default function parseData(data) {
+export function parseData(data) {
   let parsedData = []
   if (!data) return parsedData
 
