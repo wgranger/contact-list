@@ -1,8 +1,11 @@
 import React from 'react'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
-import mockInfo from './info.js'
 import { Row } from 'types'
+
+interface TableProps {
+  contacts: Row[]
+}
 
 function renderRows(activeRows: Row[], setActiveRows: (value: Row[]) => void, rows: Row[]) {
   return rows.map((row, i) => {
@@ -17,7 +20,7 @@ function renderRows(activeRows: Row[], setActiveRows: (value: Row[]) => void, ro
   })
 }
 
-export default function Table() {
+export default function Table({ contacts }: TableProps) {
   const [activeRows, setActiveRows] = React.useState<Row[]>([])
 
   return (
@@ -25,10 +28,10 @@ export default function Table() {
       <TableHeader
         activeRows={activeRows}
         setActiveRows={setActiveRows}
-        rows={mockInfo}
+        rows={contacts}
       />
       <tbody>
-        {renderRows(activeRows, setActiveRows, mockInfo)}
+        {renderRows(activeRows, setActiveRows, contacts)}
       </tbody>
     </table>
   )
