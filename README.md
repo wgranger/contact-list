@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contact List
+Show a list of contacts using Typescript and vanilla Javascript
 
-## Available Scripts
+___
 
-In the project directory, you can run:
+### Usage
+`yarn install` - to install dependencies  
+`yarn test` - to run tests  
+`yarn start` - to run locally (although `.env` variables are required)  
 
-### `yarn start`
+___
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Explanation
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Using Typescript
+I've never used Typescript, so I was happy to have the opportunity to do so here. Javascript can sometimes feel like the wild west, so strong-typing it is a nice feeling. That said, I used Typescript for the React components, but the helper functions are written in plain Javascript.
 
-### `yarn test`
+#### Testing
+I always like to test my components but do realize it's difficult to get 100% coverage on the frontend. That said, I've covered many of the logical functions and branches hit on this app. Testing here will show a verbose readout as well as a coverage report. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Accessibility
+I like using Lighthouse (Chrome) to generate a coverage report, although there are other tools. That can help ensure the site is covered for screen readers or tab indexing. Lighthouse failed here on one test (background color contrast), but that could easily be cleared up with a broader style guide or a chat with the designer.
 
-### `yarn build`
+#### Keeping it responsive
+Not much to do here. The app works with touch events and looks alright with a screen resize. Tables are a sometimes difficult to scale for mobile.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Using an error message
+It seems in good form to display an error message in case or lost connectivity or... an error. The error message here is a bit boilerplate and shows a default message in case a valid response with contact data isn't received. Normally, the error could also display the message returned from the server.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Cors-anywhere
+I did end up using cors-anywhere. I spun up my own implementation of it and hosted it on Heroku. Although I was hesitant hosting something like this on Heroku, there is rate limiting for security purposes, so it shouldn't be an issue.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Using the API
+This is where many of the assumptions occured, as I used the API documentation as a guide. Contact name, contact tags, and deal count were all pretty straightforward to display with sideloading/include. I also threw in row controls, the contact dropdown, for good measure. However, I made some assumptions on value and location.
 
-### `yarn eject`
+- **Value**  
+    From reading the docs, I assumed this is the total value of all deals associated with a contact. The issue here is that a single contact may have a deal in multiple currencies (Euros as well as US Dollars). Because of this, I created a quick conversion function to convert all values to USD. I also noticed that deals have a status (open/won/lost) tag which probably corresponds to the arrows on the style guide. However, there is some question over how this displays with multiple deals. All data I viewed had an "open" status. Hence, no arrow.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Location**  
+    Looking at the docs, I noticed the Address resource contains city, state, and country info. However, hitting the endpoint, there is only one address resource, and the resource isn't tied to contacts. Digging a bit deeper, there is some sender info containing city, state, and country when sideloading `contactLists.list`, but this data was all blank and didn't necessarily seem relevant to the direct contact.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Although I couldn't find relevant location data using the endpoint provided, I wrote a function to parse the data directly from the user should it exist. However, I realize the serializer likely would've included this tag even if the data was null.
