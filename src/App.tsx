@@ -10,6 +10,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 function App() {
   const [fetchError, setFetchError] = React.useState<boolean>(false)
   const [contacts, setContacts] = React.useState<Row[]>([])
+  const [showSpinner, setSpinner] = React.useState<boolean>(true)
 
   React.useEffect(() => {
     const setResources = async () => {
@@ -22,6 +23,7 @@ function App() {
       } else {
         setFetchError(true)
       }
+      setSpinner(false)
     }
     setResources()
   }, [])
@@ -29,9 +31,12 @@ function App() {
   return (
     <div className="App">
       {fetchError && <ErrorBanner toggleBanner={setFetchError} />}
-      <div className='loading-spinner'>
-        <FontAwesomeIcon icon={faSpinner} spin />
-      </div>
+      <Table contacts={contacts} />
+      {showSpinner && (
+        <div className='loading-spinner'>
+          <FontAwesomeIcon icon={faSpinner} spin />
+        </div>
+      )}
     </div>
   );
 }
