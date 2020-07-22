@@ -4,6 +4,8 @@ import ErrorBanner from './components/ErrorBanner'
 import fetchResources from 'helpers/client'
 import { parseData } from 'helpers/parseData'
 import { Row } from 'types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [fetchError, setFetchError] = React.useState<boolean>(false)
@@ -27,7 +29,9 @@ function App() {
   return (
     <div className="App">
       {fetchError && <ErrorBanner toggleBanner={setFetchError} />}
-      <Table contacts={contacts} />
+      <div className='loading-spinner'>
+        <FontAwesomeIcon icon={faSpinner} spin />
+      </div>
     </div>
   );
 }
