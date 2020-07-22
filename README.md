@@ -30,6 +30,9 @@ It seems in good form to display an error message in case or lost connectivity o
 #### Cors-anywhere
 I did end up using cors-anywhere. I spun up my own implementation of it and hosted it on Heroku. Although I was hesitant hosting something like this on Heroku, there is rate limiting for security purposes, so it shouldn't be an issue.
 
+#### Table
+Usually I would paginate a table like this, hitting the api for particular pages. However, the design makes no note of pagination and this is supposed to be a simple app, so for now there is not pagination.
+
 #### Using the API
 This is where many of the assumptions occured, as I used the API documentation as a guide. Contact name, contact tags, and deal count were all pretty straightforward to display with sideloading/include. I also threw in row controls, the contact dropdown, for good measure. However, I made some assumptions on value and location.
 
